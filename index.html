@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="A simple bookmark manager to save, organize, and manage your favorite websites."
+  >
+
+  <title>Bookmark Manager</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header-content">
+      <div class="logo">
+        <span class="logo-icon">🔖</span>
+        <h1>Bookmark Manager</h1>
+      </div>
+
+      <p class="header-text">
+        Save and organize your favorite websites
+      </p>
+    </div>
+  </header>
+
+
+  <!-- Main Content -->
+  <main class="container">
+
+    <!-- Add Bookmark Section -->
+    <section class="bookmark-form-section">
+
+      <div class="section-heading">
+        <h2>Add Bookmark</h2>
+        <p>Add a website to your bookmark collection.</p>
+      </div>
+
+      <form id="bookmarkForm" class="bookmark-form">
+
+        <!-- Website Name -->
+        <div class="form-group">
+          <label for="bookmarkName">Website Name</label>
+
+          <input
+            type="text"
+            id="bookmarkName"
+            placeholder="e.g. GitHub"
+            autocomplete="off"
+            required
+          >
+        </div>
+
+
+        <!-- Website URL -->
+        <div class="form-group">
+          <label for="bookmarkUrl">Website URL</label>
+
+          <input
+            type="url"
+            id="bookmarkUrl"
+            placeholder="https://example.com"
+            autocomplete="off"
+            required
+          >
+        </div>
+
+
+        <!-- Category -->
+        <div class="form-group">
+          <label for="bookmarkCategory">Category</label>
+
+          <select id="bookmarkCategory">
+            <option value="work">Work</option>
+            <option value="learning">Learning</option>
+            <option value="social">Social</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+
+        <!-- Favorite -->
+        <div class="form-group checkbox-group">
+          <input
+            type="checkbox"
+            id="bookmarkFavorite"
+          >
+
+          <label for="bookmarkFavorite">
+            Add to favorites
+          </label>
+        </div>
+
+
+        <!-- Submit Button -->
+        <button type="submit" class="btn btn-primary">
+          + Add Bookmark
+        </button>
+
+      </form>
+
+    </section>
+
+
+    <!-- Bookmark Controls -->
+    <section class="bookmark-controls">
+
+      <!-- Search -->
+      <div class="search-box">
+        <label for="searchBookmark">Search Bookmarks</label>
+
+        <input
+          type="search"
+          id="searchBookmark"
+          placeholder="Search by name..."
+          autocomplete="off"
+        >
+      </div>
+
+
+      <!-- Category Filter -->
+      <div class="filter-box">
+        <label for="categoryFilter">Filter by Category</label>
+
+        <select id="categoryFilter">
+          <option value="all">All Categories</option>
+          <option value="work">Work</option>
+          <option value="learning">Learning</option>
+          <option value="social">Social</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+
+    </section>
+
+
+    <!-- Bookmark List Section -->
+    <section class="bookmarks-section">
+
+      <div class="bookmarks-header">
+        <div>
+          <h2>My Bookmarks</h2>
+          <p>
+            <span id="bookmarkCount">0</span>
+            bookmarks saved
+          </p>
+        </div>
+
+        <button
+          type="button"
+          id="showFavorites"
+          class="btn btn-secondary"
+        >
+          ⭐ Favorites
+        </button>
+      </div>
+
+
+      <!-- Bookmark Cards Will Be Added Here -->
+      <div id="bookmarkList" class="bookmark-list">
+
+        <!-- Empty State -->
+        <div id="emptyState" class="empty-state">
+          <div class="empty-icon">🔖</div>
+
+          <h3>No bookmarks yet</h3>
+
+          <p>
+            Add your first bookmark using the form above.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- Edit Bookmark Modal -->
+  <div id="editModal" class="modal">
+
+    <div class="modal-content">
+
+      <button
+        type="button"
+        id="closeModal"
+        class="modal-close"
+        aria-label="Close edit modal"
+      >
+        &times;
+      </button>
+
+      <h2>Edit Bookmark</h2>
+
+      <form id="editBookmarkForm">
+
+        <div class="form-group">
+          <label for="editBookmarkName">Website Name</label>
+
+          <input
+            type="text"
+            id="editBookmarkName"
+            required
+          >
+        </div>
+
+
+        <div class="form-group">
+          <label for="editBookmarkUrl">Website URL</label>
+
+          <input
+            type="url"
+            id="editBookmarkUrl"
+            required
+          >
+        </div>
+
+
+        <div class="form-group">
+          <label for="editBookmarkCategory">Category</label>
+
+          <select id="editBookmarkCategory">
+            <option value="work">Work</option>
+            <option value="learning">Learning</option>
+            <option value="social">Social</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+
+        <div class="form-group checkbox-group">
+          <input
+            type="checkbox"
+            id="editBookmarkFavorite"
+          >
+
+          <label for="editBookmarkFavorite">
+            Add to favorites
+          </label>
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">
+          Save Changes
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Bookmark Manager — Built with HTML, CSS & JavaScript</p>
+    </div>
+  </footer>
+
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+</html>
